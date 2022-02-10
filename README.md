@@ -70,7 +70,7 @@ aws eks update-kubeconfig --name atc-assessment --region us-east-1
 - Create deployments in EKS to run the application, replace "<YOUR_AWS_ACCOUNT_ID>" with your AWS Account ID
 ```
 cd ..
-sed 's/402105302200/<YOUR_AWS_ACCOUNT_ID>/' kubernetes/atc-node-app.yaml
+sed -i 's/402105302200/<YOUR_AWS_ACCOUNT_ID>/' kubernetes/atc-node-app.yaml
 kubectl apply -f kubernetes/
 ```
 

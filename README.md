@@ -73,6 +73,8 @@ cd ..
 sed -i 's/402105302200/<YOUR_AWS_ACCOUNT_ID>/' kubernetes/atc-node-app.yaml
 kubectl apply -f kubernetes/
 ```
+I used Kubernetes Load Balancer service and it created Classic Load Balancer. In real project, we should be using ALB or NLB as Classic Load Balancer is outdated.
+For that, we can use ALB Load Balancer Controller which converts ingress resources to Application Load Balancer.
 
 - Wait for 2 minutes, Get the load balancer hostname
 ```

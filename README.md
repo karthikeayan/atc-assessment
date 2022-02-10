@@ -60,14 +60,17 @@ docker tag atc-node-app:latest 402105302200.dkr.ecr.us-east-1.amazonaws.com/atc-
 docker push 402105302200.dkr.ecr.us-east-1.amazonaws.com/atc-node-app:1.0.0
 ```
 
+## Kubernetes
+
 - Get kubeconfig to connect to the EKS Cluster
 ```
 aws eks update-kubeconfig --name atc-assessment --region us-east-1
 ```
 
-- Create deployments in EKS to run the application
+- Create deployments in EKS to run the application, replace "<YOUR_AWS_ACCOUNT_ID>" with your AWS Account ID
 ```
 cd ..
+sed 's/402105302200/<YOUR_AWS_ACCOUNT_ID>/' kubernetes/atc-node-app.yaml
 kubectl apply -f kubernetes/
 ```
 

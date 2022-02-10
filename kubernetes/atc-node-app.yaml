@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: atc-node-app
+  labels:
+    app: atc-node-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: atc-node-app
+  template:
+    metadata:
+      labels:
+        app: atc-node-app
+    spec:
+      containers:
+      - name: atc-node-app
+        image: 402105302200.dkr.ecr.us-east-1.amazonaws.com/atc-node-app:1.0.0
+        ports:
+        - containerPort: 3000
+        env:
+        - name: ATC_USERNAME
+          value: "karthikeyan"
+        - name: ATC_PASSWORD
+          value: "th!s!sjustf0r!nterv!ew"
